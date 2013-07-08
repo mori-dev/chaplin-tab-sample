@@ -9,6 +9,8 @@ module.exports = class TabView extends View
     @registerRegion '#tab-contents-container', 'tab-contents'
     @tab_bar_view = new TabBarView
     @tab_contents_view = new TabContentsView
+    @subscribeEvent 'clickTab', @updateTab
+
   autoRender: yes
   template: template
   region: 'tab'
@@ -16,3 +18,9 @@ module.exports = class TabView extends View
     super
     @tab_bar_view.render()
     @tab_contents_view.render()
+
+  updateTab: (event) ->
+    @tab_bar_view.$('.js-tab-link').each (index, element) -> $(element).removeClass('active')
+    $(event.target).closest('.js-tab-link').addClass('active')
+    @tab_contents_view.$('.tab-content').each (index, element) -> $(element).removeClass('active')
+    $($(event.target).data('tag-content')).addClass('active')

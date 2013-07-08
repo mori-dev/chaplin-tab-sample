@@ -8,11 +8,6 @@ module.exports = class TabBarView extends View
   render: ->
     @delegate 'click', '.js-tab-link', @activate
     super
-  activate: (e) =>
-    e.preventDefault()
-    @$('.js-tab-link').each (index, element) ->
-      $(element).removeClass('active')
-    $(e.target).closest('.js-tab-link').addClass('active')
-    $('.tab-content').each  (index, element) ->
-      $(element).removeClass('active')
-    $($(e.target).data('tag-content')).addClass('active')
+  activate: (event) ->
+    event.preventDefault()
+    @publishEvent 'clickTab', event
