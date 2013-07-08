@@ -8,9 +8,9 @@ module.exports = class TabView extends View
   template: template
   region: 'tab'
   regions:
-    '#tab-bar-container': 'tab-bar'
-    '#tab-contents-container': 'tab-contents'
+   '#tab-bar-container': 'tab-bar'
+   '#tab-contents-container': 'tab-contents'
   render: ->
     super
-    (new TabBarView).render()
-    (new TabContentsView).render()
+    new TabBarView
+    new TabContentsView
