@@ -1,0 +1,48 @@
+.home-page {
+
+  #tab-container {
+    display:block;
+    width:800px;
+    height:500px;
+    border: solid 1px red;
+  }
+  #tab-bar-container{
+    display:block;
+    height:30px;
+    border: solid 1px green;
+  }
+  #tab-contents-container{
+    display:block;
+    height:400px;
+    border: solid 1px blue;
+  }
+
+  li {
+    display:block;
+    float:left;
+    width:100px;
+    height:25px;
+    margin-right:5px;
+    text-align:center;
+  }
+  li:hover {
+    background-color: skyblue;
+  }
+  li.active {
+    background-color: skyblue;
+  }
+
+  #tab-bar {
+    height:50px;
+  }
+  #tab-contents {
+    clear:both;
+    height:200px;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+}

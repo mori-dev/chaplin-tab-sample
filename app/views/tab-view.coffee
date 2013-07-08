@@ -14,6 +14,8 @@ module.exports = class TabView extends View
   autoRender: yes
   template: template
   region: 'tab'
+  id: 'js-tabview'
+
   render: ->
     super
     @tab_bar_view.render()

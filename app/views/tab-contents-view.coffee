@@ -5,3 +5,4 @@ module.exports = class TabContentsView extends View
   autoRender: yes
   template: template
   region: 'tab-contents'
+  id: 'tab-contents'

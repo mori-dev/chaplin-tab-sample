@@ -5,6 +5,7 @@ module.exports = class TabBarView extends View
   autoRender: yes
   template: template
   region: 'tab-bar'
+  id: 'tab-bar'
   render: ->
     @delegate 'click', '.js-tab-link', @activate
     super
