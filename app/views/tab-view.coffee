@@ -4,13 +4,15 @@ TabBarView = require 'views/tab-bar-view'
 TabContentsView = require 'views/tab-contents-view'
 
 module.exports = class TabView extends View
+  initialize: ->
+    @registerRegion '#tab-bar-container', 'tab-bar'
+    @registerRegion '#tab-contents-container', 'tab-contents'
+    @tab_bar_view = new TabBarView
+    @tab_contents_view = new TabContentsView
   autoRender: yes
   template: template
   region: 'tab'
-  regions:
-   '#tab-bar-container': 'tab-bar'
-   '#tab-contents-container': 'tab-contents'
   render: ->
     super
-    new TabBarView
-    new TabContentsView
+    @tab_bar_view.render()
+    @tab_contents_view.render()
