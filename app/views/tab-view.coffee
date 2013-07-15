@@ -4,25 +4,14 @@ TabBarView = require 'views/tab-bar-view'
 TabContentsView = require 'views/tab-contents-view'
 
 module.exports = class TabView extends View
-  initialize: ->
-    @registerRegion '#tab-bar-container', 'tab-bar'
-    @registerRegion '#tab-contents-container', 'tab-contents'
-    @tab_bar_view = new TabBarView
-    @tab_contents_view = new TabContentsView
-    @subscribeEvent 'clickTab', @updateTab
-
   autoRender: yes
   template: template
   region: 'tab'
+  regions:
+    '#tab-bar-container': 'tab-bar'
+    '#tab-contents-container': 'tab-contents'
   id: 'js-tabview'
-
   render: ->
     super
-    @tab_bar_view.render()
-    @tab_contents_view.render()
-
-  updateTab: (event) ->
-    @tab_bar_view.$('.js-tab-link').each -> $(@).removeClass('active')
-    $(event.target).closest('.js-tab-link').addClass('active')
-    @tab_contents_view.$('.tab-content').each -> $(@).removeClass('active')
-    $($(event.target).data('tag-content')).addClass('active')
+    new TabBarView
+    new TabContentsView
