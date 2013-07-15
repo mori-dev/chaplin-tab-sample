@@ -22,7 +22,7 @@ module.exports = class TabView extends View
     @tab_contents_view.render()
 
   updateTab: (event) ->
-    @tab_bar_view.$('.js-tab-link').each (index, element) -> $(element).removeClass('active')
+    @tab_bar_view.$('.js-tab-link').each -> $(@).removeClass('active')
     $(event.target).closest('.js-tab-link').addClass('active')
-    @tab_contents_view.$('.tab-content').each (index, element) -> $(element).removeClass('active')
+    @tab_contents_view.$('.tab-content').each -> $(@).removeClass('active')
     $($(event.target).data('tag-content')).addClass('active')
