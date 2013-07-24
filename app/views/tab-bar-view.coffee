@@ -6,13 +6,14 @@ module.exports = class TabBarView extends View
     @delegate 'click', '.js-tab-link', @activate
     @tab_contents_view = attr.tab_contents_view
     @tab_name = attr.tab_name
+    @subscribeEvent 'clickTabBar', @refreshTabBar
   autoRender: yes
   template: template
   region: 'tab-bar'
   activate: (event) ->
     event.preventDefault()
-    $('.js-tab-link').removeClass 'active'
-    @$el.closest('.js-tab-link').addClass 'active'
+    @publishEvent 'clickTabBar'
+    @$('.js-tab-link').addClass 'active'
     @tab_contents_view.activate()
-  getTemplateData: ->
-    { tab_name: @tab_name }
+  getTemplateData: -> { tab_name: @tab_name }
+  refreshTabBar: -> @$('.js-tab-link').removeClass 'active'

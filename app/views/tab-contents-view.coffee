@@ -6,6 +6,7 @@ module.exports = class TabContentsView extends View
     @id = attr.id
     @name = attr.name
     @address = attr.address
+    @subscribeEvent 'clickTabBar', @refreshTabContents
   autoRender: yes
   template: template
   region: 'tab-contents'
@@ -14,5 +15,12 @@ module.exports = class TabContentsView extends View
   getTemplateData: ->
     { id: @id, name: @name, address: @address }
   activate: =>
-    $('.tab-content').removeClass 'active'
+    # $('.tab-content').removeClass 'active'
     @$el.addClass 'active'
+
+  refreshTabContents: ->
+    @$el.removeClass 'active'
+    # $('.tab-content').removeClass 'active'
+    # alert "updateTabContents"
+    # @$el.removeClass 'active'
+    # $($(event.target).data('tab-content')).addClass 'active'
