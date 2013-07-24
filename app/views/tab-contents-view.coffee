@@ -13,14 +13,10 @@ module.exports = class TabContentsView extends View
   id: "#{@id}"
   className: -> "tab-content"
   getTemplateData: ->
-    { id: @id, name: @name, address: @address }
-  activate: =>
-    # $('.tab-content').removeClass 'active'
+    id: @id
+    name: @name
+    address: @address
+  activate: ->
     @$el.addClass 'active'
-
   refreshTabContents: ->
     @$el.removeClass 'active'
-    # $('.tab-content').removeClass 'active'
-    # alert "updateTabContents"
-    # @$el.removeClass 'active'
-    # $($(event.target).data('tab-content')).addClass 'active'
