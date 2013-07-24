@@ -13,7 +13,15 @@ module.exports = class TabView extends View
   id: 'js-tabview'
   render: ->
     super
-    @tab_bar_view = new TabBarView
+    @tab_bar_view1 = new TabBarView
+      data_tab_content: "#tab-content1"
+      tab_name: "link-1"
+    @tab_bar_view2 = new TabBarView
+      data_tab_content: "#tab-content2"
+      tab_name: "link-2"
+    @tab_bar_view3 = new TabBarView
+      data_tab_content: "#tab-content3"
+      tab_name: "link-3"
 
     @tab_contents_view1 = new TabContentsView
       id: "tab-content1"
