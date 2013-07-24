@@ -4,7 +4,7 @@ template = require 'views/templates/tab-bar'
 module.exports = class TabBarView extends View
   initialize: (attr) ->
     @delegate 'click', '.js-tab-link', @activate
-    @data_tab_content = attr.data_tab_content
+    @tab_contents_view = attr.tab_contents_view
     @tab_name = attr.tab_name
   autoRender: yes
   template: template
@@ -13,6 +13,6 @@ module.exports = class TabBarView extends View
     event.preventDefault()
     $('.js-tab-link').removeClass 'active'
     @$el.closest('.js-tab-link').addClass 'active'
-    @publishEvent 'clickTabBar', event
+    @tab_contents_view.activate()
   getTemplateData: ->
-    { data_tab_content: @data_tab_content, tab_name: @tab_name }
+    { tab_name: @tab_name }

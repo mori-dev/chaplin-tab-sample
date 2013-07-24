@@ -11,17 +11,10 @@ module.exports = class TabView extends View
     '#tab-bar-container': 'tab-bar'
     '#tab-contents-container': 'tab-contents'
   id: 'js-tabview'
+
   render: ->
+
     super
-    @tab_bar_view1 = new TabBarView
-      data_tab_content: "#tab-content1"
-      tab_name: "link-1"
-    @tab_bar_view2 = new TabBarView
-      data_tab_content: "#tab-content2"
-      tab_name: "link-2"
-    @tab_bar_view3 = new TabBarView
-      data_tab_content: "#tab-content3"
-      tab_name: "link-3"
 
     @tab_contents_view1 = new TabContentsView
       id: "tab-content1"
@@ -35,3 +28,15 @@ module.exports = class TabView extends View
       id: "tab-content3"
       name: "saburo"
       address: "hokkaido"
+
+    @tab_bar_view1 = new TabBarView
+      tab_contents_view: @tab_contents_view1
+      tab_name: "link-1"
+    @tab_bar_view2 = new TabBarView
+      tab_contents_view: @tab_contents_view2
+      tab_name: "link-2"
+    @tab_bar_view3 = new TabBarView
+      tab_contents_view: @tab_contents_view3
+      tab_name: "link-3"
+
+    @
