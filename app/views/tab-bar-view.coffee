@@ -11,8 +11,7 @@ module.exports = class TabBarView extends View
   template: template
   region: 'tab-bar'
   className: 'js-tab-link'
-  activate: (event) ->
-    event.preventDefault()
+  activate: ->
     @publishEvent 'clickTabBar'
     @$el.addClass 'active'
     @tab_contents_view.activate()
